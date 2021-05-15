@@ -1,8 +1,8 @@
 from transformers import TrainingArguments
 from adaptnlp import LMFineTuner
 
-train_file = "corpora/SBIC.v2/SBIC.v2.trn.txt"
-eval_file =  "corpora/SBIC.v2/SBIC.v2.dev.txt"
+train_file = "finetuning/corpora/SBIC.v2/SBIC.v2.trn.txt"
+eval_file =  "finetuning/corpora/SBIC.v2/SBIC.v2.dev.txt"
 
 training_args = TrainingArguments(
     output_dir='finetuning/models/',

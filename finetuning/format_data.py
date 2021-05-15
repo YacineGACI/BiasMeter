@@ -1,6 +1,6 @@
 import csv
 
-base_filename = "corpora/SBIC.v2/SBIC.v2.{}.{}"
+base_filename = "finetuning/corpora/SBIC.v2/SBIC.v2.{}.{}"
 subset = "trn"
 
 
