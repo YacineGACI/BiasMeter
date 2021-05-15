@@ -7,6 +7,7 @@ from gensim.models import KeyedVectors
 from classification.models import SubgroupClassifier
 
 import text_utils
+from metrics import entropy_metric as metric
 
 
 
@@ -131,14 +132,8 @@ def compute_masked_sentence_stereotype(sentence, subgroup_word, demographic_vari
     for k in subgroups.keys():
         subgroups[k] = subgroups[k] / total_prob
 
-    # Step 7: Get the current subgroup probability
-    this_subgroup_prob = subgroups[subgroup_word]
-
-    # Step 8: Get the mean probability of the other subgroups
-    mean_prob = sum([p for k, p in subgroups.items() if k != subgroup_word]) / (len(subgroups) - 1)
-
-    # Step 9: Return the stereotype of @sentence
-    return this_subgroup_prob - mean_prob
+    # Step 7: Compute the bias metric
+    return metric(subgroups, subgroup_word)
 
 
         
